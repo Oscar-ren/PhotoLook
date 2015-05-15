@@ -1,0 +1,240 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #f0f0f0; 
+  font-family: "Lucida Grande", Lucida Sans Unicode, Hiragino Sans GB, WenQuanYi Micro Hei, Verdana, Aril, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+img {
+	margin: 0;
+	display: inline-block;
+}
+@font-face{font-family:'Glyphicons Halflings';src:url(../fonts/glyphicons-halflings-regular.eot);src:url(../fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),url(../fonts/glyphicons-halflings-regular.woff) format('woff'),url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'),url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')}
+.glyphicon {
+	position:relative;
+	top:1px;
+	display:inline-block;
+	font-family:'Glyphicons Halflings';
+	font-style:normal;font-weight:400;
+	line-height:1;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+.glyphicon-plus:before{content:"\2b";}
+.glyphicon-minus:before{content:"\2212";}
+.glyphicon-resize-full:before {content: "\e096";}
+.glyphicon-resize-small:before {content: "\e097";}
+/* 
+ * buttons
+*/
+.btn { display: inline-block; padding: .5em 1em; border: 0 none; border: 1px solid rgba(0,0,0,.25); border-radius: 0.3em; background-image: none; box-shadow: 0 1px rgba(0,0,0,.15), inset 0 1px rgba(255,255,255,.15); color: #fff; text-align: center; text-decoration: none; text-shadow: 1px 1px rgba(0,0,0,.1); font-size: 100%; white-space: nowrap; -webkit-user-select: none; -moz-user-select: none; user-select: none; overflow: visible; cursor: pointer; }
+.btn:hover, .btn:focus { text-decoration: none; background-image: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.1)); }
+.btn:focus { outline: thin dotted; outline: 5px auto -webkit-focus-ring-color; outline-offset: -2px; }
+.btn:active { box-shadow: 0 1px rgba(0,0,0,.2), inset 0 1px rgba(0,0,0,.05); outline: none; }
+.btn_blue { background-color: #0074d9; }
+
+/* 
+ * pics
+*/
+#display {
+	overflow: hidden;
+	position: relative;
+	height: 580px;
+}
+#pic {
+	width: auto;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.draggable {
+	cursor: move;
+}
+/* 
+ * drags
+*/
+#drag {
+	position: absolute;
+	right: 8%;
+	bottom: 15%;
+	width: 150px;
+	height: 150px;
+	background:#515151;
+	border-radius: 4px;
+}
+#drag-border {
+	position: absolute;
+	top:10%;left:10%;right:10%;bottom:10%;
+	border:3px dashed #333;
+	border-radius:2px;
+	background:#515151;
+}
+#drag-text {
+	position: absolute;
+	top:50%;left:0;right:0;
+	margin-top:-20px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	font-size:16px;
+	color:#999;
+}
+#drag-file {
+	cursor: pointer;
+	position: absolute;
+	display: block;
+	width: 110px;
+	height: 110px;
+	top:0;left:0;bottom:0;right:0;
+	opacity: 0;
+	-moz-opacity: 0;
+	filter:alpha(opacity=0);
+}
+/* 
+ * rotation-btns
+*/
+.rotation-btn {
+	position: absolute;
+	width: 100%;
+	height: 41px;
+	top: 50%;
+	margin-top: -50px;
+}
+.rotation-btn span:hover {
+	filter:alpha(opacity=80);
+	opacity:0.8}
+.rotation-btn span {
+	background: url(../image/ico.png) no-repeat;
+	display: block;
+	width: 43px;
+	height: 43px;
+	opacity: 0.3;
+	filter:alpha(opacity=30);
+	cursor: pointer;
+	position: relative;
+}
+.rotation-btn .left-btn {
+	background-position: -1px -1px;
+	float: left;
+	left: 40px;
+}
+.rotation-btn .right-btn {
+	background-position: -1px -49px;
+	float: right;
+	right: 40px;
+}
+/* 
+ * picnums
+*/
+.picnum {
+	position: absolute;
+	top: 9%;
+	right: 10%;
+	font-size: 26px;
+	color: #666;
+}
+#numpic {
+	color: black;
+}
+#totallpic {
+	font-size: 20px;
+}
+/* 
+ * controls
+*/
+.control {
+	position: fixed;
+	/*overflow: hidden;*/
+	text-align: center;
+	bottom: 0;
+	background-color: #8dc8fb;
+	height: 60px;
+	width: 100%;
+	border: 1px solid #78aad6;
+}
+.bottom-btn {
+	margin-top: 5px;
+}
+.plus {
+	margin: 0 auto;
+	display: block;
+	width: 40px;
+	height: 40px;
+}
+@keyframes shave {
+	0% {
+		transform:rotate(0deg);
+	}
+	25% {
+		transform:rotate(5deg);
+	}
+	50% {
+		transform:rotate(-10deg);
+	}
+	75% {
+		transform:rotate(10deg);
+	}
+	100% {
+		transform:rotate(-5deg);
+	}
+}
+@-webkit-keyframes shave {
+	0% {
+		-webkit-transform:rotate(0deg);
+	}
+	25% {
+		-webkit-transform:rotate(5deg);
+	}
+	50% {
+		-webkit-transform:rotate(-10deg);
+	}
+	75% {
+		-webkit-transform:rotate(10deg);
+	}
+	100% {
+		-webkit-transform:rotate(-5deg);
+	}
+}
+#trash{
+	position: absolute;
+	top: -70px;
+	left: 12%;
+	height: 70px;
+	width: 57px;
+	cursor: pointer;
+}
+.animation {
+	-webkit-animation:shave 250ms ease-in-out;
+	-o-animation:shave 250ms ease-in-out;
+	animation:shave 250ms ease-in-out;
+}
+#trash:hover .trashhead {
+	-webkit-transform: rotate(-35deg);
+	-ms-transform: rotate(-35deg);
+	-o-transform: rotate(-35deg);
+	transform: rotate(-35deg);
+}
+.trashbg {
+	background: url(../image/trash.png) no-repeat;
+}
+.trashhead {
+	background-position: 0 0;
+	height: 19px;
+	-webkit-transform-origin: left bottom;  
+  -webkit-transition: -webkit-transform 150ms ease-in-out;  
+  -moz-transform-origin: left bottom;  
+  -moz-transition: -moz-transform 150ms ease-in-out;  
+  -o-transform-origin: left bottom;  
+  -o-transition: -o-transform 150ms ease-in-out;  
+  -ms-transform-origin: left bottom;  
+  -ms-transition: -ms-transform 150ms ease-in-out;  
+  transform-origin: left bottom;  
+  transition: transform 150ms ease-in-out  
+}
+.trashbody {
+	background-position: 0 -19px;
+	height: 51px;
+}

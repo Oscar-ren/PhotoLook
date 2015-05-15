@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
+	<meta name="description" content="js图片查看器,支持加载本地和外部图片、键盘和鼠标滚轮查看、放大缩小及滚动图片。可兼容IE10+及其他主流浏览器">
+	<meta name="keywords" content="js,图片查看,多功能,外部加载##功能介绍：
+这个作品是仿windows的图片查看器。可以放大、缩小、鼠标拖动和键盘左右键浏览图片等功能。支持删除，显示图片当前/总数，以及自适应图片布局。
+##所查看的图片来源有三种：
+*本地上传
+*本地拖拽
+*外部网页拖拽。
+##浏览器支持情况：
+支持ie10+，chrome，firefox等主流浏览器（因为使用了FileReader，所以没有兼容低版本ie）。
+ 
+ps:由于360浏览器禁止了拖拽图片到其他标签页，所以该功能被限制，可以使用其他浏览器体验该功能。另外，初次加载主页时也许会有轻微闪烁，是由于自适应图片大小导致。
+
+代码已部署到新浪云上，[访问地址](http://www.photolook.sinaapp.com/)">
+	<meta name="author" content="Oscar-ren,719704258@qq.com">
+	<link rel="shortcut icon" type="image/x-icon" href="./image/photo.ico">
+	<link rel="Bookmark" type="image/x-icon" href="./image/photo.ico">
+	<!-- <meta http-equiv="Pragma" content="no-cache"> -->
+	<title>图片显示器</title>
+	<link rel="stylesheet" href="./css/photoLook.css">
+</head>
+<body>
+	<div class="container">
+		<div id="display">
+			<img src="./image/Jesscia.jpg" alt="picture" title='picture' id='pic' class='draggable'>
+		</div>
+		<div id='drag'>
+			<div id="drag-border">
+				<div id="drag-text">拖拽外部图片</div>
+				<input type="file" name="" id="drag-file"/>
+			</div>
+		</div>
+		<div class="rotation-btn">
+			<span class="left-btn" id='left'></span>
+			<span class="right-btn" id='right'></span>
+		</div>
+		<div class="picnum">
+			<b id='numpic'>1</b>/<span id='totallpic'>1</span>
+		</div>
+		<div class="control">
+			<div class="bottom-btn">
+				<button class='btn btn_blue glyphicon glyphicon-plus' id='plus' title='放大'></button>
+				<button class='btn btn_blue glyphicon glyphicon-minus' id='minus' title='缩小'></button>
+				<button class='btn btn_blue glyphicon glyphicon-resize-full' id='actually' title='实际大小'></button>
+				<button class='btn btn_blue glyphicon glyphicon-resize-small' id='adjust' title='按窗口大小显示'></button>
+			</div>
+			<div id="trash">
+				<div class="trashbg trashhead"></div>
+				<div class="trashbg trashbody"></div>
+			</div>
+		</div>
+	</div>
+	<script src='./js/photoLook.js'></script>
+	<script>
+		window.onload = function() {
+			fileArray.unshift(imgs[currentImgIndex].src);
+			initWH();
+			setTimeout(picHeight, 0);
+		}
+	</script>
+</body>
+</html>
